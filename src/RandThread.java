@@ -22,7 +22,7 @@ public class RandThread implements Runnable {
     int rn = rand.nextInt((upperbound - 1) + 1);
     this.random_num = rn;
     System.out.println("Random number " + this.random_num);
-    // this.numList.add(rn);
+    this.numList.add(rn);
   }
 
   public static void main(String[] args) {
@@ -56,17 +56,20 @@ public class RandThread implements Runnable {
       e.printStackTrace();
     }
 
-    int sum = r1.getRandomNum() + r2.getRandomNum() + r3.getRandomNum() + r4.getRandomNum() + r5.getRandomNum();
+    // int sum = r1.getRandomNum() + r2.getRandomNum() + r3.getRandomNum() +
+    // r4.getRandomNum() + r5.getRandomNum();
 
-    System.out.println("The sum is : " + sum);
+    // System.out.println("The sum is : " + sum);
 
-    // int sum_collect = 0;
-    // for (Integer num_collect : r5.getNumList()) {
-    // System.out.println("Number " + num_collect);
-    // sum_collect += num_collect;
-    // }
+    int sum_collect = 0;
+    int j = 1;
+    for (Integer num_collect : r5.getNumList()) {
+      System.out.println("Number " + j + " in colection list " + num_collect);
+      sum_collect += num_collect;
+      j++;
+    }
 
-    // System.out.println("The sum from collections is :" + sum_collect);
+    System.out.println("The sum from collections is :" + sum_collect);
 
   }
 
