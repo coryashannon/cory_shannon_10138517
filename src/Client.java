@@ -22,24 +22,28 @@ public class Client {
 		}
 	}
 
-	public void communicate()  {
+	public void communicate() {
 
 		String line = "";
 		String response = "";
 		boolean running = true;
+
 		while (running) {
 			try {
-				System.out.println("please enter a word: ");
-				line = stdIn.readLine();
-				if (!line.equals("QUIT")){
+
+				if (!line.equals("QUIT")) {
+					System.out.println("please enter a word: ");
+					line = stdIn.readLine();
 					System.out.println(line);
 					socketOut.println(line);
 					response = socketIn.readLine();
-					System.out.println(response);	
-				}else{
+					System.out.println(response);
+
+				} else {
+					System.out.println("Good bye");
 					running = false;
 				}
-				
+
 			} catch (IOException e) {
 				System.out.println("Sending error: " + e.getMessage());
 			}
@@ -54,7 +58,7 @@ public class Client {
 
 	}
 
-	public static void main(String[] args) throws IOException  {
+	public static void main(String[] args) throws IOException {
 		Client aClient = new Client("localhost", 8099);
 		aClient.communicate();
 	}
