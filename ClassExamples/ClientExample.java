@@ -31,20 +31,17 @@ public class ClientExample {
 		String line = "";
 		String response = "";
 
-		while (!line.contentEquals("QUIT")) {
+		try {
+			System.out.println("Please enter a word: ");
+			line = stdIn.readLine();// read line from the user (i.e. from the keyboard)
+			socketOut.println(line);
+			response = socketIn.readLine(); // read response from the socket
+			System.out.println(response);
 
-			try {
-				System.out.println("Please enter a word: ");
-				line = stdIn.readLine();// read line from the user (i.e. from the keyboard)
-				socketOut.println(line);
-				response = socketIn.readLine(); // read response from the socket
-				System.out.println(response);
-
-			} catch (IOException e) {
-				e.getStackTrace();
-			}
-
+		} catch (IOException e) {
+			e.getStackTrace();
 		}
+
 		try {
 			stdIn.close();
 			socketIn.close();
@@ -55,7 +52,7 @@ public class ClientExample {
 	}
 
 	public static void main(String[] args) throws IOException {
-		ClientExample myClient = new ClientExample("localhost", 9898);
+		ClientExample myClient = new ClientExample("localhost", 9090);
 		myClient.commmunicate();
 	}
 

@@ -1,4 +1,3 @@
-package inlab2;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -45,12 +44,12 @@ public class DateServer {
 				if (line.toString().equals("DATE")) {
 					Calendar cal = Calendar.getInstance();
 					SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-DD");
-					socketOutput.println( sdf.format(cal.getTime()));
+					socketOutput.println(sdf.format(cal.getTime()));
 				} else if (line.toString().equals("TIME")) {
 					Calendar cal = Calendar.getInstance();
 					SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-					socketOutput.println( sdf.format(cal.getTime()));
-				}else {
+					socketOutput.println(sdf.format(cal.getTime()));
+				} else {
 					socketOutput.println("Wrong input, please try again");
 				}
 			}
